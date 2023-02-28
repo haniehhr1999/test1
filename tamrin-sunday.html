@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local-storage</title>
+</head>
+<body>
+    <script>
+        //set items
+        localStorage.setItem('courses' , 'React')
+        //remove item
+        localStorage.removeItem('courses')
+        //clear all storage
+        localStorage.clear()
+        //get item from local storage 
+        localStorage.getItem('courses')
+
+        //set item in another way
+        let total = ['js' , 'react' , 'git&github']
+        const toString1 = JSON.stringify(total)
+        const toArray = JSON.parse(toString1)
+        console.log(toString1);
+        ////////////
+    </script>
+</body>
+</html>

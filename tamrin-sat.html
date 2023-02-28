@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //oop
+        //object constructor
+        let Client = function(name , balance){
+            this.balance = balance,
+            this.name = name 
+        }
+
+        Client.prototype.membership = function(){
+            let name;
+            if (this.balance > 1000) {
+                name = 'Gold'
+            } else if (this.balance >500) {
+                name = 'Silver'
+            }else{
+                name = 'normal'
+            }
+            return name
+        }
+        Client.prototype.getClientInfo = function(){
+            return`name: ${this.name}, balance: ${this.balance} , membership: ${this.membership()}`
+
+        }
+        Client.prototype.withdraw = function(amount){
+            return this.balance -= amount
+        }
+        Client.prototype.deposit = function(amount){
+            return this.balance += amount
+        }
+
+        let person1 = new Client('hanieh' , 150)
+        let person2 = new Client('hamed' , 600)
+
+        console.log(person1);
+        console.log(person1.getClientInfo());
+        console.log(person2);
+
+        person1.withdraw(100)
+        person1.deposit(600)
+
+        console.log(person1.getClientInfo());
+
+        //////// continue
+        let Bussiness = function (name, balance , phone ,category){
+            Client.call(this, name , balance)
+            this.phone = phone,
+            this.category = category
+        }
+        Bussiness.prototype = Object.create(Client.prototype)
+
+        const bussiness1 = new Bussiness('hamed' , 50000 , 09120000000 , 'developer')
+        console.log(bussiness1);
+        console.log(bussiness1.getClientInfo());
+
+
+
+
+
+        ////////////inheriting in class///////////////
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        class Client{
+            //constructor
+            constructor(name , balance){
+                this.name = name , 
+                this.balance = balance
+            }
+            //about the membership og client
+            membership(){
+                let name 
+                if (this.balance >1000) {
+                    name = 'gold'
+                } else if (this.balance >500){
+                    name = 'silver'
+                } else {
+                    name = 'normal'
+                }
+                return name 
+            }
+            //get some information about clients
+            getClientInfo(){
+                return`name: ${this.name} ,balance: ${this.balance}, membership:${this.membership()}`
+            }
+            withdraw(amount){
+                return this.balance -= amount
+            }
+            deposit(amount){
+                return this.balance += amount
+            }
+        }
+        let person1 = new Client ('hamed' , 6000)
+        let person2 = new Client('hanieh' , 70000)
+        console.log(person1);
+    </script>
+</body>
+</html>

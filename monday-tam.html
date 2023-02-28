@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: blue;
+            color: white;
+            float: left;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        1
+    </div>
+    <span>salaaam</span>
+    <script>
+        ///////////////////clone-node////////////////////////////////
+        var numBox = 1;
+        document.addEventListener('click' , createBox)
+        function createBox (ev){
+            if (ev.target.className == 'box') {
+                var newBox = ev.target.cloneNode(true)
+                newBox.innerText = ++numBox
+                document.body.append(newBox)
+            }
+        }
+        ////////////////////object-function//////////////////////////
+        function Student (name, family, age, avg){
+            this.name = name,
+            this.family = family,
+            this.age = age,
+            this.avg = avg,
+            this.introduce = function(){
+                return "hello my name is :" + this.name
+            }
+            this.toJson = () =>{
+                return {
+                    name : this.name,
+                    family : this.family
+                }
+            }
+        }
+        var students = []
+        students.push( new Student('hamed' , 'taheri', 29 , 20))
+        students.push( new Student('hanieh' , 'rahim', 23 , 20))
+        students.push( new Student('hadi' , 'akbari', 33 , 16))
+        students.push( new Student('amid' , 'shakeri', 29 , 12))
+        console.log(students);
+
+
+    </script>
+</body>
+</html>

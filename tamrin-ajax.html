@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <button id="button">load ajax</button>
+    <div id="output"></div>
+    <script>
+        document.querySelector('#button').addEventListener('click' , loadData)
+        function loadData(){
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET', './data.txt' , true)
+            //true = asyncrons
+            xhr.onload = function(){
+                if (this.status === 200) {
+                    document.querySelector('#output').innerHTML = `<h1>${this.responseText}</h1>`
+                }
+            }
+            xhr.send()
+        }
+        //status code
+        //200 = correct
+        //404 = not found
+        //403 = forbidden 
+        
+        //ready state
+        //0 = unset
+        //1 = open
+        //2 = recived
+        //3 = loading
+        //4 = done
+        
+
+
+    </script>
+</body>
+</html>
