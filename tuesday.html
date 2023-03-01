@@ -4,16 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JSON</title>
 </head>
 <body>
-    <h1>hello guys im hanieh rahim</h1>
-    <ul>
-        <li>item1</li>
-        <li>item2</li>
-        <li>item3</li>
-        <li>item4</li>
-        <li>item5</li>
-    </ul>
+    <img src="" alt="" data-src="images/linkedin.png" data-timer="35000" data-toggle="show">
+
+    <script>
+        var ElementImage = document.querySelector('img')
+        var timer = ElementImage.dataset['timer']
+        setTimeout(() => {
+            var url = document.dataset['src']
+            ElementImage.setAttribute('src' , url)
+            ElementImage.classList.add(ElementImage.dataset['toggle'])
+
+        }, timer);
+        /////////////////////////////////////////////////
+        /////////////////METHODS OF JSON/////////////////
+        /////////////////////////////////////////////////
+        var response = `{
+            "data": {
+                    "id": 2,
+                    "email": "janet.weaver@reqres.in",
+                    "first_name": "Janet",
+                    "last_name": "Weaver",
+                    "avatar": "https://reqres.in/img/faces/2-image.jpg"
+                },
+                "support": {
+                    "url": "https://reqres.in/#support-heading",
+                    "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+                }    
+        }`
+        console.log(JSON.parse(response));
+        /////////////////////////////////
+        var students = {
+            name: 'hamed',
+            lname: 'taheri',
+            age: 29,
+            avg:20,
+            introduce: function(){
+                return 'Hello guys my name is:' + this.name +this.lname
+            }
+        }
+        console.log(JSON.stringify(students));
+        /////////////////////////////////////////////////
+        ///////////////////////END///////////////////////
+        /////////////////////////////////////////////////
+        
+    </script>
 </body>
 </html>

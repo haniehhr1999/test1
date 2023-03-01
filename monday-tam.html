@@ -59,6 +59,55 @@
         students.push( new Student('amid' , 'shakeri', 29 , 12))
         console.log(students);
 
+        /////////////create element & Insert in html file//////////////////////
+        var newElement = document.createElement('div')
+        newElement.innerHTML = 'this is some text for test'
+        newElement.setAttribute('id' , 'test')
+        newElement.setAttribute('class' , 'group')
+        console.log(newElement);
+        document.body.insertBefore(newElement,document.querySelector('span'))
+        //--------- document.body.prepend(newElement)
+        ////////////////////////class///////////////////////////////
+        class Human{
+            #name
+            fatherName
+            #age
+
+            constructor(name, fatherName , age){
+                this.#name = name;
+                this.#age = age;
+                this.fatherName = fatherName
+            }
+            setAge( age ){
+                if (parseInt(age) !== NaN && age >0 ) {
+                    this.#age = age
+                } else {
+                    console.error('age is invalid')
+                }
+            }
+            getAge(){
+                return this.#age
+            }
+            setName = function(name){
+                this.#name = name
+
+            }
+            getName(){
+                return this.#name
+            }
+            introduce = ()=> {
+                return 'hello my name is:' + this.#name
+            }
+        }
+        class Student extends Human{
+            avg
+            constructor (avg){
+                super()
+                this.avg = avg
+            }
+        }
+
+
 
     </script>
 </body>
