@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="call">call</button>
+    <button class="bind">bind</button>
+    <div class="box show"></div>
+    <button class="btn">click me</button>
+    <script>
+        /////////////call/////////////////////////
+        function sum ( c,d,a ){
+            return this.a + this.b + c + d + a ;
+        }
+        var std = {
+            a: 10,
+            b: 20,
+            age: 20,
+            avg: 18
+        }
+        var std2 ={
+            a: 40,
+            b: 50
+        }
+        // document.querySelector('.call').addEventListener('click' , hardBind)
+        // function hardBind(){
+        //     alert ( sum.call (std , 100, 200, 300))
+        // }
+        //////////////bind////////////////////////
+        var hardBinded = sum.bind( std, 100 ,200 ,300)
+        document.querySelector('.bind').addEventListener('click' , hardBinded)
+        //////////////classlist///////////////////
+        var boxElemenet = document.querySelector('.box')
+        document.querySelector('.btn').addEventListener('click' , function(){
+            boxElemenet.classList.toggle('show')
+            boxElemenet.classList.toggle('hide')
+            boxElemenet.classList.add('demo')
+        })
+        /////////////////////////////////////////////
+        var carNumber = 'b40'
+        var driver = {
+            carNumber: 'a20',
+            getCarNumber: getCar
+        }
+        var getCar = function(){
+            return this.carNumber;
+        }
+        console.log(getCar()); //b40
+        console.log(driver.getCarNumber()); //a20
+        ///////////////////////////////////////////
+        class Student{
+            name = 'hamed';
+            getName(){
+                return this.name
+            }
+            setName(name){
+                this.name = name
+            }
+        }
+        var std2 =  new Student()
+        std2.setName('hanieh')
+        
+
+
+        
+
+    </script>
+</body>
+</html>
